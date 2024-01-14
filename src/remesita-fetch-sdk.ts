@@ -1,4 +1,4 @@
-export const BASE_URL = "https://remesita.com";
+export const BASE_URL = "https://api.remesita.com";
 
 
 // Modelos
