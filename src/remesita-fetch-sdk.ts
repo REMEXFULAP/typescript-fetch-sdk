@@ -114,7 +114,7 @@ export interface ApiResponse<T> {
 
 
 class RemesitaAPI {
-    private baseURL: string = 'https://remesita.com';
+    private baseURL: string = 'https://api.remesita.com';
     private token: string | null = null;
 
     constructor(apiKey: string, apiSecret: string) {
@@ -260,7 +260,7 @@ class RemesitaAPI {
             return { success: false, error: error.message };
         }
     }
-    public async createPaymentLink(amount: number, memo: string): Promise<ApiResponse<PaymentLinkResponse>> {
+    public async createSimplePaymentLink(amount: number, memo: string): Promise<ApiResponse<PaymentLinkResponse>> {
         try {
             const response = await axios.post(`${this.baseURL}/rest/v1/payment-link`, { amount, memo }, { headers: this.headers });
             return { success: true, data: response.data };
